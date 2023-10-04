@@ -69,6 +69,6 @@ IServiceScope serviceProvider = app.Services.GetRequiredService<IServiceProvider
 await IdentityHelper.CreateRoles(serviceProvider.ServiceProvider, IdentityHelper.Administrator, IdentityHelper.WebUser);
 
 // Create default instructor
-
+await IdentityHelper.CreateDefaultUser(serviceProvider.ServiceProvider, IdentityHelper.Administrator);
 
 app.Run();

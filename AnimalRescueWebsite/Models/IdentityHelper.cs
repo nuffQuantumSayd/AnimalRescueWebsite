@@ -20,6 +20,27 @@ namespace AnimalRescueWebsite.Models
                     await roleManager.CreateAsync(new IdentityRole(role));
                 }
             }
+
         }
+
+        public static async Task CreateDefaultUser(IServiceProvider provider, string role)
+        {
+            var userManager = provider.GetService<UserManager<IdentityUser>>();
+
+            // If no users are present make the default user
+            if (userManager.Users.Any() == false)
+            {
+                var defaultUser = new IdentityUser()
+                {
+                    Email = "administrator@gmail.com",
+                    UserName = "Admin"
+                };
+
+                await userManager.CreateAsync(defaultUser, "Administrator1!");
+
+                await userManager.AddToRoleAsync(defaultUser, role);
+            }
+        }
+
     }
 }
