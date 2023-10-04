@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using AnimalRescueWebsite.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace AnimalRescueWebsite.Data
@@ -9,5 +10,8 @@ namespace AnimalRescueWebsite.Data
             : base(options)
         {
         }
+
+        public DbSet<Dog> Dogs { get; set; }
     }
+
 }
