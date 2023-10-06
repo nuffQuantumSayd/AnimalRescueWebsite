@@ -1,0 +1,57 @@
+﻿@model AnimalRescueWebsite.Models.Dog
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Dog</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DogName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DogName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DogAge)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DogAge)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DogSize)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DogSize)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DogBreed)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DogBreed)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DogGender)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DogGender)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DogPic)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DogPic)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="DogId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
