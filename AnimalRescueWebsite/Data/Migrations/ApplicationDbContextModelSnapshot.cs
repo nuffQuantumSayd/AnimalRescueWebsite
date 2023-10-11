@@ -119,9 +119,9 @@ namespace AnimalRescueWebsite.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Email")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
-                        
+
 
                     b.HasKey("Id");
 
