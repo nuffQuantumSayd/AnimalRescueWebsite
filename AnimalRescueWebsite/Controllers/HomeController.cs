@@ -18,6 +18,11 @@ namespace AnimalRescueWebsite.Controllers
             return View();
         }
 
+        public IActionResult DogListView()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
