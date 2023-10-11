@@ -1,0 +1,52 @@
+﻿@model IEnumerable<AnimalRescueWebsite.Models.Dog>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DogName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DogAge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DogSize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DogBreed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DogGender)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DogName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DogAge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DogSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DogBreed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DogGender)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
