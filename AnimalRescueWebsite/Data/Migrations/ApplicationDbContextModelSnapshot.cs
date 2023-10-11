@@ -122,7 +122,6 @@ namespace AnimalRescueWebsite.Data.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
