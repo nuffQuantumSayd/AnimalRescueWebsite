@@ -1,0 +1,59 @@
+﻿@model IEnumerable<AnimalRescueWebsite.Models.Dog>
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>View</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DogName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DogAge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DogSize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DogBreed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DogGender)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DogName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DogAge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DogSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DogBreed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DogGender)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DogId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.DogId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.DogId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
