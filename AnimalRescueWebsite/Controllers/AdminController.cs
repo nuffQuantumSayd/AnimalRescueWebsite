@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AnimalRescueWebsite.Data;
 using AnimalRescueWebsite.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AnimalRescueWebsite.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext _context;
