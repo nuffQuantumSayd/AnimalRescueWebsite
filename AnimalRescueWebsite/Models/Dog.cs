@@ -43,5 +43,10 @@ namespace AnimalRescueWebsite.Models
         [Required]
         public string DogGender { get; set; }
 
+        /// <summary>
+        /// A description of the dog
+        /// </summary>
+        public string DogDescription { get; set; }
+
     }
 }
