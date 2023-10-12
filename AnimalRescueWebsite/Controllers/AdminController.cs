@@ -58,7 +58,7 @@ namespace AnimalRescueWebsite.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DogId,DogName,DogAge,DogSize,DogBreed,DogGender,DogPic")] Dog dog)
+        public async Task<IActionResult> Create([Bind("DogId,DogName,DogAge,DogSize,DogBreed,DogGender,DogDescription")] Dog dog)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace AnimalRescueWebsite.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DogId,DogName,DogAge,DogSize,DogBreed,DogGender,DogPic")] Dog dog)
+        public async Task<IActionResult> Edit(int id, [Bind("DogId,DogName,DogAge,DogSize,DogBreed,DogGender,DogDescription")] Dog dog)
         {
             if (id != dog.DogId)
             {
