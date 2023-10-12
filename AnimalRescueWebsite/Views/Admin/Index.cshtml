@@ -30,6 +30,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.DogGender)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DogDescription)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -53,6 +56,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DogGender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DogDescription)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.DogId">Edit</a> |
