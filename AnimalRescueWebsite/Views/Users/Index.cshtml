@@ -4,49 +4,18 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Available Dogs!</h1>
 
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DogName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DogAge)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DogSize)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DogBreed)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DogGender)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DogName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DogAge)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DogSize)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DogBreed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DogGender)
-            </td>
-        </tr>
+@foreach (var item in Model)
+{
+    <div class="card" style="width: 18rem;">
+        <img src="https://placehold.co/280x180" class="card-img-top" alt="placeholder image">
+        <div class="card-body">
+            <h5 class="card-title">@Html.DisplayFor(modelItem => item.DogName)</h5>
+            <p class="card-text">@Html.DisplayFor(modelItem => item.DogDescription)</p>
+            <a href="#" class="btn btn-primary">Adopt Me!</a>
+        </div>
+    </div>
 }
-    </tbody>
-</table>
+
