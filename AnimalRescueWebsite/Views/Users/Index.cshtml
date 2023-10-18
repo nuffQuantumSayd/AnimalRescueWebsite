@@ -16,7 +16,7 @@
                 <div class="card-body">
                     <h5 class="card-title">@Html.DisplayFor(modelItem => item.DogName)</h5>
                     <p class="card-text">@Html.DisplayFor(modelItem => item.DogDescription)</p>
-                    <a href="#" class="btn btn-primary">Adopt Me!</a>
+                    <a href="@Url.Action("Apply", "DogApplication", new {id = item.DogId})" class="btn btn-primary">Adopt Me!</a>
                 </div>
             </div>
         }
