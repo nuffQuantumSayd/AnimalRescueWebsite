@@ -4,18 +4,56 @@
 
 namespace AnimalRescueWebsite.Data.Migrations
 {
-    public partial class DogApplications : Migration
+    public partial class DogFKaddedtoApplicant : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "DogApplications");
+
+            migrationBuilder.AddColumn<int>(
+                name: "Dog",
+                table: "Applicants",
+                type: "int",
+                nullable: false,
+                defaultValue: 0);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Applicants_Dog",
+                table: "Applicants",
+                column: "Dog");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Applicants_Dogs_Dog",
+                table: "Applicants",
+                column: "Dog",
+                principalTable: "Dogs",
+                principalColumn: "DogId",
+                onDelete: ReferentialAction.Cascade);
+        }
+
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropForeignKey(
+                name: "FK_Applicants_Dogs_Dog",
+                table: "Applicants");
+
+            migrationBuilder.DropIndex(
+                name: "IX_Applicants_Dog",
+                table: "Applicants");
+
+            migrationBuilder.DropColumn(
+                name: "Dog",
+                table: "Applicants");
+
             migrationBuilder.CreateTable(
                 name: "DogApplications",
                 columns: table => new
                 {
                     DogApplicationId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Dog = table.Column<int>(type: "int", nullable: false),
-                    Applicant = table.Column<int>(type: "int", nullable: false)
+                    Applicant = table.Column<int>(type: "int", nullable: false),
+                    Dog = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -43,12 +81,6 @@ namespace AnimalRescueWebsite.Data.Migrations
                 name: "IX_DogApplications_Dog",
                 table: "DogApplications",
                 column: "Dog");
-        }
-
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.DropTable(
-                name: "DogApplications");
         }
     }
 }
