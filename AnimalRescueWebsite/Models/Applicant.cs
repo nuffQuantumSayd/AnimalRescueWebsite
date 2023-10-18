@@ -1,4 +1,6 @@
-﻿namespace AnimalRescueWebsite.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AnimalRescueWebsite.Models
 {
     /// <summary>
     /// This class represents an applicant for an adoptable dog
@@ -8,6 +10,7 @@
         /// <summary>
         /// The unique identifier for each applicant
         /// </summary>
+        [Key]
         public int ApplicantId { get; set; }
 
         /// <summary>
@@ -49,5 +52,15 @@
         /// The primary phone number of the applicant 
         /// </summary>
         public string ApplicantPhone { get; set; }
+
+        /// <summary>
+        /// The occupation of the applicant
+        /// </summary>
+        public string ApplicantOccupation { get; set; }
+
+        /// <summary>
+        /// The number of children an applicant has
+        /// </summary>
+        public int NumberOfChildren { get; set; }
     }
 }
