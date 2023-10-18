@@ -26,11 +26,11 @@ namespace AnimalRescueWebsite.Data.Migrations
 
             modelBuilder.Entity("AnimalRescueWebsite.Models.Applicant", b =>
                 {
-                    b.Property<int>("ApplicationId")
+                    b.Property<int>("ApplicantId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ApplicationId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ApplicantId"), 1L, 1);
 
                     b.Property<string>("AddressCity")
                         .IsRequired()
@@ -74,7 +74,7 @@ namespace AnimalRescueWebsite.Data.Migrations
                     b.Property<int>("NumberOfChildren")
                         .HasColumnType("int");
 
-                    b.HasKey("ApplicationId");
+                    b.HasKey("ApplicantId");
 
                     b.HasIndex("Dog");
 

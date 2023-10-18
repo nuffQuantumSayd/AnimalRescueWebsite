@@ -12,7 +12,7 @@ namespace AnimalRescueWebsite.Models
         /// The unique identifier for each application
         /// </summary>
         [Key]
-        public int ApplicationId { get; set; }
+        public int ApplicantId { get; set; }
 
         /// <summary>
         /// The first name of the applicant

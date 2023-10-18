@@ -24,7 +24,7 @@ namespace AnimalRescueWebsite.Data.Migrations
                         name: "FK_DogApplications_Applicants_Applicant",
                         column: x => x.Applicant,
                         principalTable: "Applicants",
-                        principalColumn: "ApplicationId",
+                        principalColumn: "ApplicantId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_DogApplications_Dogs_Dog",
