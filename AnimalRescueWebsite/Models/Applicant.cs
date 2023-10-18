@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AnimalRescueWebsite.Models
 {
@@ -8,10 +9,10 @@ namespace AnimalRescueWebsite.Models
     public class Applicant
     {
         /// <summary>
-        /// The unique identifier for each applicant
+        /// The unique identifier for each application
         /// </summary>
         [Key]
-        public int ApplicantId { get; set; }
+        public int ApplicationId { get; set; }
 
         /// <summary>
         /// The first name of the applicant
@@ -22,6 +23,11 @@ namespace AnimalRescueWebsite.Models
         /// The last name of the applicant
         /// </summary>
         public string ApplicantLastName { get; set; }
+
+        /// <summary>
+        /// The date of the application
+        /// </summary>
+        public DateTime DateOfApplication { get; set; }
 
         /// <summary>
         /// The street of the address the applicant resides in
@@ -62,5 +68,8 @@ namespace AnimalRescueWebsite.Models
         /// The number of children an applicant has
         /// </summary>
         public int NumberOfChildren { get; set; }
+
+        [ForeignKey(nameof(Dog))]
+        public virtual Dog dog { get; set; }
     }
 }
