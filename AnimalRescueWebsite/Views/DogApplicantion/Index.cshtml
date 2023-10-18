@@ -1,0 +1,95 @@
+﻿@model IEnumerable<AnimalRescueWebsite.Models.Applicant>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicantFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicantLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfApplication)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddressStreet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddressCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddressState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddressZip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicantEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicantPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicantOccupation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfChildren)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicantFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicantLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfApplication)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddressStreet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddressCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddressState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddressZip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicantEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicantPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicantOccupation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfChildren)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ApplicationId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ApplicationId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ApplicationId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
