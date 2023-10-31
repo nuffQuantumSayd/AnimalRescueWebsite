@@ -70,6 +70,6 @@ namespace AnimalRescueWebsite.Models
         public int NumberOfChildren { get; set; }
 
         [ForeignKey(nameof(Dog))]
-        public virtual Dog dog { get; set; }
+        public int dog { get; set; }
     }
 }
