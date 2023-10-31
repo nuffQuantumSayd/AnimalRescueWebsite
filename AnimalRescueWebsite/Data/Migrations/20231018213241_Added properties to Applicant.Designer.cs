@@ -4,6 +4,7 @@ using AnimalRescueWebsite.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AnimalRescueWebsite.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231018213241_Added properties to Applicant")]
+    partial class AddedpropertiestoApplicant
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -69,13 +71,15 @@ namespace AnimalRescueWebsite.Data.Migrations
                     b.Property<DateTime>("DateOfApplication")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Dog")
+                        .HasColumnType("int");
+
                     b.Property<int>("NumberOfChildren")
                         .HasColumnType("int");
 
-                    b.Property<int>("dog")
-                        .HasColumnType("int");
-
                     b.HasKey("ApplicantId");
+
+                    b.HasIndex("Dog");
 
                     b.ToTable("Applicants");
                 });
@@ -313,6 +317,17 @@ namespace AnimalRescueWebsite.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("AnimalRescueWebsite.Models.Applicant", b =>
+                {
+                    b.HasOne("AnimalRescueWebsite.Models.Dog", "dog")
+                        .WithMany()
+                        .HasForeignKey("Dog")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("dog");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
