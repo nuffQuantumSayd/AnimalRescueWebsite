@@ -56,8 +56,10 @@ namespace AnimalRescueWebsite.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ApplicantId,ApplicantFirstName,ApplicantLastName,DateOfApplication,AddressStreet,AddressCity,AddressState,AddressZip,ApplicantEmail,ApplicantPhone,ApplicantOccupation,NumberOfChildren")] Applicant applicant)
+        public async Task<IActionResult> Create(int id, Applicant applicant)
         {
+            applicant.dog = id;
+
             if (ModelState.IsValid)
             {
                 _context.Add(applicant);
