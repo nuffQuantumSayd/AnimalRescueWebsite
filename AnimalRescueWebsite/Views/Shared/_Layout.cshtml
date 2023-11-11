@@ -14,6 +14,13 @@
         nav {
             background: #6504b5;
         }
+
+        .navbar-brand {
+            color: #FFF !important;
+        }
+        li > a {
+            color: #FFF !important;
+        } 
     </style>
 </head>
 <body>
@@ -28,19 +35,19 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
+                            <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Available Dogs</a>
+                            <a class="nav-link" asp-area="" asp-controller="Users" asp-action="Index">Available Dogs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="DogApplications" asp-action="Index">Dog Applications</a>
+                            <a class="nav-link" asp-area="" asp-controller="DogApplications" asp-action="Index">Dog Applications</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
