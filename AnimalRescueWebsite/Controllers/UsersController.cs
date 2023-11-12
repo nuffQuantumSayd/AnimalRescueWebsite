@@ -31,5 +31,10 @@ namespace AnimalRescueWebsite.Controllers
         {
           return (_context.Dogs?.Any(e => e.DogId == id)).GetValueOrDefault();
         }
+
+        public IActionResult DogDescriptions()
+        {
+          return View();
+        }
     }
 }
