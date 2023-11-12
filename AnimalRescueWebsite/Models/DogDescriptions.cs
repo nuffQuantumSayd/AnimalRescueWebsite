@@ -5,8 +5,12 @@ namespace AnimalRescueWebsite.Models
 {
     public class DogDescriptions
     {
-        [ForeignKey(nameof(Dog))]
+        [Key]
         public int DescriptionId { get; set; }
+
+        [ForeignKey(nameof(Dog))]
+        [Display(Name = "Dog ID")]
+        public int DogId { get; set; }
 
         public string Characteristics { get; set; }
 
