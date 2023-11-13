@@ -1,6 +1,32 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model AnimalRescueWebsite.Models.DogDescriptions
+
 @{
+    ViewData["Title"] = "Dog Descriptions";
 }
-<h1>Dog descriptions</h1>
+
+<h1>Description</h1>
+
+<div class="card">
+    <div>
+        <h2>About</h2>
+        <h3>@Html.DisplayNameFor(model => model.Characteristics)</h3>
+        <p>@Html.DisplayFor(model => model.Characteristics)</p>
+
+        <h3>@Html.DisplayNameFor(model => model.CoatLength)</h3>
+        <p>@Html.DisplayFor(model => model.CoatLength)</p>
+
+        <h3>@Html.DisplayNameFor(model => model.Health)</h3>
+        <p>@Html.DisplayFor(model => model.Health)</p>
+
+        <h3>@Html.DisplayNameFor(model => model.GoodInHomeWith)</h3>
+        <p>@Html.DisplayFor(model => model.GoodInHomeWith)</p>
+
+        <h3>@Html.DisplayNameFor(model => model.AdoptionFee)</h3>
+        <p>$@Html.DisplayFor(model => model.AdoptionFee).00</p>
+
+        <h3>@Html.DisplayNameFor(model => model.LongDescription)</h3>
+        <p>@Html.DisplayFor(model => model.LongDescription)</p>
+    </div>
+    
+</div>
+
