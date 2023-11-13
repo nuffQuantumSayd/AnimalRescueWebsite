@@ -33,6 +33,13 @@ li > a {
     color: #FFF !important;
 }
 
+.nav-item {
+    color: #FFF !important;
+}
+#logoutBtn {
+    color: #FFF !important;
+}
+
 .front_animal_banner {
     background-image: url("/images/dog_banner.jpg");
     background-position: center;
@@ -57,5 +64,4 @@ li > a {
 
 .card > img {
     width: 100%;
-
 }
