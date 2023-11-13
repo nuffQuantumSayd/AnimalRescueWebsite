@@ -36,13 +36,19 @@ namespace AnimalRescueWebsite.Controllers
         
         public async Task<IActionResult> DogDescriptions(int id)
         {
-            Models.DogDescriptions? dogDescriptions =  _context.DogDescriptions.Where(d => d.DogId == id).FirstOrDefault();
-            if(dogDescriptions == null)
+            //Models.DogDescriptions? dogDescriptions =  _context.DogDescriptions.Where(d => d.DogId == id).FirstOrDefault();
+            AllDogInformation allDogInformation = new AllDogInformation
+            {
+                Dog = await _context.Dogs.FindAsync(id),
+                DogDescriptions = _context.DogDescriptions.Where(d => d.DogId == id).FirstOrDefault()
+            };
+            
+            if(allDogInformation == null)
             {
                 return NotFound();
             }
             
-            return View(dogDescriptions);
+            return View(allDogInformation);
         }
     }
 }
