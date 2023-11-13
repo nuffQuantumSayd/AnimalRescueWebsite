@@ -16,7 +16,9 @@
             string picturePath = "/images/dogs/dog_" + item.DogId + ".jpg"; 
             
             <div class="card" style="width: 18rem; margin: 1rem">
-                <img src=@picturePath class="card-img-top" onclick="goToDogDescription(@item.DogId)">
+                <div class="card-img-top" onclick="goToDogDescription(@item.DogId)" style="width:200px; height:200px; background-image: url(@picturePath); background-repeat: no-repeat;
+                                                                                            background-position:center"></div>
+                @* <img src=@picturePath class="card-img-top" onclick="goToDogDescription(@item.DogId)"> *@
                 <div class="card-body">
                     <h5 class="card-title">@Html.DisplayFor(modelItem => item.DogName)</h5>
                     <p class="card-text">@Html.DisplayFor(modelItem => item.DogDescription)</p>
