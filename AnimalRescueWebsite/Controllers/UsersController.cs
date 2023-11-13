@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AnimalRescueWebsite.Data;
 using AnimalRescueWebsite.Models;
+using AnimalRescueWebsite.Data.Migrations;
 
 namespace AnimalRescueWebsite.Controllers
 {
@@ -32,9 +33,16 @@ namespace AnimalRescueWebsite.Controllers
           return (_context.Dogs?.Any(e => e.DogId == id)).GetValueOrDefault();
         }
 
-        public IActionResult DogDescriptions()
+        
+        public async Task<IActionResult> DogDescriptions(int id)
         {
-          return View();
+            Models.DogDescriptions? dogDescriptions =  _context.DogDescriptions.Where(d => d.DogId == id).FirstOrDefault();
+            if(dogDescriptions == null)
+            {
+                return NotFound();
+            }
+            
+            return View(dogDescriptions);
         }
     }
 }

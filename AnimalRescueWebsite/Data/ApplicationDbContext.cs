@@ -15,6 +15,8 @@ namespace AnimalRescueWebsite.Data
 
         public DbSet<Applicant> Applicants { get; set; }
 
+        public DbSet<DogDescriptions> DogDescriptions { get; set; }
+
     }
 
 }
