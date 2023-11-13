@@ -2,7 +2,9 @@
 
 @{
     ViewData["Title"] = "Index";
+    
 }
+
 
 <h1>Available Dogs!</h1>
 <p>Click on a photo for more details!</p>
@@ -11,8 +13,10 @@
     <div class="row">
         @foreach (var item in Model)
         {
+            string picturePath = "/images/dogs/dog_" + item.DogId + ".jpg"; 
+            
             <div class="card" style="width: 18rem; margin: 1rem">
-                <img src="https://placehold.co/280x180" class="card-img-top" alt="placeholder image" onclick="goToDogDescription(@item.DogId)">
+                <img src=@picturePath class="card-img-top" onclick="goToDogDescription(@item.DogId)">
                 <div class="card-body">
                     <h5 class="card-title">@Html.DisplayFor(modelItem => item.DogName)</h5>
                     <p class="card-text">@Html.DisplayFor(modelItem => item.DogDescription)</p>
