@@ -1,4 +1,4 @@
-﻿@model AnimalRescueWebsite.Models.DogDescriptions
+﻿@model AnimalRescueWebsite.Models.AllDogInformation
 
 @{
     ViewData["Title"] = "Dog Descriptions";
@@ -8,24 +8,25 @@
 
 <div class="card">
     <div>
-        <h2>About</h2>
-        <h3>@Html.DisplayNameFor(model => model.Characteristics)</h3>
-        <p>@Html.DisplayFor(model => model.Characteristics)</p>
+        <h2>About @Html.DisplayFor(model => model.Dog.DogName)</h2>
 
-        <h3>@Html.DisplayNameFor(model => model.CoatLength)</h3>
-        <p>@Html.DisplayFor(model => model.CoatLength)</p>
+        <h3>@Html.DisplayNameFor(model => model.DogDescriptions.Characteristics)</h3>
+        <p>@Html.DisplayFor(model => model.DogDescriptions.Characteristics)</p>
 
-        <h3>@Html.DisplayNameFor(model => model.Health)</h3>
-        <p>@Html.DisplayFor(model => model.Health)</p>
+        <h3>@Html.DisplayNameFor(model => model.DogDescriptions.CoatLength)</h3>
+        <p>@Html.DisplayFor(model => model.DogDescriptions.CoatLength)</p>
 
-        <h3>@Html.DisplayNameFor(model => model.GoodInHomeWith)</h3>
-        <p>@Html.DisplayFor(model => model.GoodInHomeWith)</p>
+        <h3>@Html.DisplayNameFor(model => model.DogDescriptions.Health)</h3>
+        <p>@Html.DisplayFor(model => model.DogDescriptions.Health)</p>
 
-        <h3>@Html.DisplayNameFor(model => model.AdoptionFee)</h3>
-        <p>$@Html.DisplayFor(model => model.AdoptionFee).00</p>
+        <h3>@Html.DisplayNameFor(model => model.DogDescriptions.GoodInHomeWith)</h3>
+        <p>@Html.DisplayFor(model => model.DogDescriptions.GoodInHomeWith)</p>
 
-        <h3>@Html.DisplayNameFor(model => model.LongDescription)</h3>
-        <p>@Html.DisplayFor(model => model.LongDescription)</p>
+        <h3>@Html.DisplayNameFor(model => model.DogDescriptions.AdoptionFee)</h3>
+        <p>$@Html.DisplayFor(model => model.DogDescriptions.AdoptionFee).00</p>
+
+        <h3>@Html.DisplayNameFor(model => model.DogDescriptions.LongDescription)</h3>
+        <p>@Html.DisplayFor(model => model.DogDescriptions.LongDescription)</p>
     </div>
     
 </div>
