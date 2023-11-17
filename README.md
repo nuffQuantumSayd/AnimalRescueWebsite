@@ -8,6 +8,8 @@ available dogs for adoption, submit adoption applications,
 and for administrators, provides CRUD (Create, Read, Update, Delete)
 functionality to manage dog listings, applications, and user accounts.
 
+[Check it out!](https://animalrescuewebsite.azurewebsites.net/)
+
 ## Authors
 - Aaron Kornish
 
