@@ -21,6 +21,7 @@
                 @* <img src=@picturePath class="card-img-top" onclick="goToDogDescription(@item.DogId)"> *@
                 <div class="card-body">
                     <h5 class="card-title">@Html.DisplayFor(modelItem => item.DogName)</h5>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.DogBreed)</p>
                     <p class="card-text">@Html.DisplayFor(modelItem => item.DogDescription)</p>
                     <a href="@Url.Action("Create", "DogApplications", new {id = item.DogId})" class="btn btn-primary">Adopt Me!</a>
                 </div>
