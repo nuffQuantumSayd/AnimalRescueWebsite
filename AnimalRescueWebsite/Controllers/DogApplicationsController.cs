@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace AnimalRescueWebsite.Controllers
 {
-    [Authorize (Roles = "Administrator")]
+
     public class DogApplicationsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -22,14 +22,16 @@ namespace AnimalRescueWebsite.Controllers
         }
 
         // GET: DogApplications
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Index()
         {
-              return _context.Applicants != null ? 
-                          View(await _context.Applicants.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Applicants'  is null.");
+            return _context.Applicants != null ?
+                        View(await _context.Applicants.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Applicants'  is null.");
         }
 
         // GET: DogApplications/Details/5
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Applicants == null)
@@ -48,6 +50,7 @@ namespace AnimalRescueWebsite.Controllers
         }
 
         // GET: DogApplications/Create
+        [Authorize(Roles = "WebUser")]
         public IActionResult Create()
         {
             return View();
@@ -58,6 +61,7 @@ namespace AnimalRescueWebsite.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles ="WebUser")]
         public async Task<IActionResult> Create(int id, Applicant applicant)
         {
             applicant.dog = id;
@@ -66,12 +70,13 @@ namespace AnimalRescueWebsite.Controllers
             {
                 _context.Add(applicant);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Users");
             }
             return View(applicant);
         }
 
         // GET: DogApplications/Edit/5
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Applicants == null)
@@ -92,6 +97,7 @@ namespace AnimalRescueWebsite.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles ="Administrator")]
         public async Task<IActionResult> Edit(int id, [Bind("ApplicantId,ApplicantFirstName,ApplicantLastName,DateOfApplication,AddressStreet,AddressCity,AddressState,AddressZip,ApplicantEmail,ApplicantPhone,ApplicantOccupation,NumberOfChildren")] Applicant applicant)
         {
             if (id != applicant.ApplicantId)
@@ -123,6 +129,7 @@ namespace AnimalRescueWebsite.Controllers
         }
 
         // GET: DogApplications/Delete/5
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Applicants == null)
@@ -141,6 +148,7 @@ namespace AnimalRescueWebsite.Controllers
         }
 
         // POST: DogApplications/Delete/5
+        [Authorize(Roles = "Administrator")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
