@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html class="wide wow-animation" lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -19,36 +19,35 @@
             <p>Loading...</p>
         </div>
     </div>
-    <header class="page-head">
-        <!-- RD Navbar-->
-        <div class="rd-navbar-wrap">
-            <nav class="rd-navbar" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-sm-device-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fullwidth" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-static" data-sm-stick-up-offset="50px" data-lg-stick-up-offset="90px">
-                <div class="rd-navbar-inner">
-                    <!-- RD Navbar Panel-->
-                    <div class="rd-navbar-panel">
-                        <!-- RD Navbar Toggle-->
-                        <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
-                        <!-- RD Navbar Brand-->
-                        <div class="rd-navbar-brand"><a class="brand-name" href="index.html"><img src="images/logo.png" width="162" height="61" alt=""></a></div>
+    <div class="page text-center">
+        <header class="page-head">
+            <!-- RD Navbar-->
+            <div class="rd-navbar-wrap">
+                <nav class="rd-navbar" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-sm-device-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fullwidth" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-static" data-sm-stick-up-offset="50px" data-lg-stick-up-offset="90px">
+                    <div class="rd-navbar-inner">
+                        <!-- RD Navbar Panel-->
+                        <div class="rd-navbar-panel">
+                            <!-- RD Navbar Toggle-->
+                            <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                            <!-- RD Navbar Brand-->
+                            <div class="rd-navbar-brand"><a class="brand-name" href="index.html"><img src="images/logo.png" width="162" height="61" alt=""></a></div>
+                        </div>
+                        <div class="rd-navbar-nav-wrap">
+                            <!-- RD Navbar Nav-->
+                            <ul class="rd-navbar-nav">
+                                <li class="active"><a asp-controller="Home" asp-action="Index">Home page</a></li>
+                                <li><a asp-controller="Users" asp-action="Index">Available Dogs</a></li>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Contacts</a></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="rd-navbar-nav-wrap">
-                        <!-- RD Navbar Nav-->
-                        <ul class="rd-navbar-nav">
-                            <li class="active"><a asp-controller="Home" asp-action="Index">Home page</a></li>
-                            <li><a asp-controller="Users" asp-action="Index">Available Dogs</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Contacts</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+                </nav>
+            </div>
+        </header>
+        @RenderBody()
     </div>
+    
 
     <footer class="border-top footer text-muted">
         <div class="container">
