@@ -47,14 +47,13 @@
             </div>
         </header>
         @RenderBody()
+        <footer class="page-footer">
+            <div class="container">
+                <span>&#169;</span> <span id="copyright-year">2023</span>
+                <hr class="divider divider-default divider-vertical"><a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy policy</a>
+            </div>
+        </footer>
     </div>
-    
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - AnimalRescueWebsite - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
