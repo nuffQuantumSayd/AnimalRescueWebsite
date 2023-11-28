@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AnimalRescueWebsite.Models.Dog>
+﻿@model AnimalRescueWebsite.Models.DogAndApplicationsModel
 
 @{
     ViewData["Title"] = "Index";
@@ -9,63 +9,163 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<h2>Dogs</h2>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.DogId)
+                Id
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DogName)
+                Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DogAge)
+                Age
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DogSize)
+                Size
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DogBreed)
+                Breed
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DogGender)
+                Gender
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DogDescription)
+                Description
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DogId)
+        @foreach (var dog in Model.Dogs) {
+            <tr>
+                <td>
+                @Html.DisplayFor(m => dog.DogId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DogName)
+                    @Html.DisplayFor(m => dog.DogName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DogAge)
+                    @Html.DisplayFor(m => dog.DogAge)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DogSize)
+                    @Html.DisplayFor(m => dog.DogSize)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DogBreed)
+                    @Html.DisplayFor(m => dog.DogBreed)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DogGender)
+                    @Html.DisplayFor(m => dog.DogGender)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DogDescription)
+                    @Html.DisplayFor(m => dog.DogDescription)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.DogId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.DogId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.DogId">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@dog.DogId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@dog.DogId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@dog.DogId">Delete</a>
             </td>
         </tr>
+
+
+
 }
+    </tbody>
+</table>
+<h2>Applicants</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Street
+            </th>
+            <th>
+                City
+            </th>
+            <th>
+                State
+            </th>
+            <th>
+                Zip
+            </th>
+            <th>
+                Phone Number
+            </th>
+            <th>
+                Occupation
+            </th>
+            <th>
+                Children
+            </th>
+            <th>
+                Dogs Id
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var applicant in Model.Applicants)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => applicant.ApplicantId)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => applicant.ApplicantFirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => applicant.ApplicantLastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => applicant.DateOfApplication)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => applicant.AddressStreet)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => applicant.AddressCity)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => applicant.AddressState)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => applicant.AddressZip)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => applicant.ApplicantEmail)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => applicant.ApplicantPhone)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => applicant.ApplicantOccupation)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => applicant.NumberOfChildren)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => applicant.dog)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@applicant.ApplicantId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@applicant.ApplicantId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@applicant.ApplicantId">Delete</a>
+                </td>
+            </tr>
+
+
+
+        }
     </tbody>
 </table>

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using AnimalRescueWebsite.Data;
 using AnimalRescueWebsite.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Collections.Immutable;
 
 namespace AnimalRescueWebsite.Controllers
 {
@@ -24,9 +25,15 @@ namespace AnimalRescueWebsite.Controllers
         // GET: Admin
         public async Task<IActionResult> Index()
         {
-              return _context.Dogs != null ? 
-                          View(await _context.Dogs.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Dogs'  is null.");
+            DogAndApplicationsModel dogApplications = new DogAndApplicationsModel();
+
+            dogApplications.Dogs = _context.Dogs.ToList();
+            dogApplications.Applicants = _context.Applicants.ToList();
+            
+            return View(dogApplications);
+            //return _context.Dogs != null ? 
+              //            View(await _context.Dogs.ToListAsync()) :
+              //            Problem("Entity set 'ApplicationDbContext.Dogs'  is null.");
         }
 
         // GET: Admin/Details/5

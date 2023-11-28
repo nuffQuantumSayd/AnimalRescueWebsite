@@ -76,43 +76,43 @@ var userAgent = navigator.userAgent.toLowerCase(),
 /**
  * Page transition
  */
-$window.on("load", function() {
+//$window.on("load", function() {
 
-  var linkLocation,
-    page = $(".page"),
-    animDuration = "500",
-    animIn = "fadeIn",
-    animOut = "fadeOut";
+//  var linkLocation,
+//    page = $(".page"),
+//    animDuration = "500",
+//    animIn = "fadeIn",
+//    animOut = "fadeOut";
 
-  page.addClass(animIn + " animated" );
-  page.css("animation-duration", animDuration + "ms");
+//  //page.addClass(animIn + " animated" );
+//  //page.css("animation-duration", animDuration + "ms");
 
-  clearTimeout(loaderTimeoutId);
-  if( plugins.preloader.length ) {
-    plugins.preloader.addClass("loaded");
-  }
+//  clearTimeout(loaderTimeoutId);
+//  if( plugins.preloader.length ) {
+//    plugins.preloader.addClass("loaded");
+//  }
 
-  $( "a" ).click( function( event ) {
-    var link = event.currentTarget.getAttribute("href");
+//  $( "a" ).click( function( event ) {
+//    var link = event.currentTarget.getAttribute("href");
 
-    if ( !/(\#|callto:|tel:|mailto:|:\/\/)/.test(link) && !event.currentTarget.hasAttribute('data-photo-swipe-item') ) {
-      event.preventDefault();
-      console.warn('[page transition]');
+//    if ( !/(\#|callto:|tel:|mailto:|:\/\/)/.test(link) && !event.currentTarget.hasAttribute('data-photo-swipe-item') ) {
+//      event.preventDefault();
+//      console.warn('[page transition]');
 
-      linkLocation = this.href;
-      page.removeClass(animIn).addClass(animOut);
-      setTimeout( redirectPage, animDuration );
-    }
-  });
+//      linkLocation = this.href;
+//      page.removeClass(animIn).addClass(animOut);
+//      setTimeout( redirectPage, animDuration );
+//    }
+//  });
 
-  function redirectPage() {
-    window.location = linkLocation;
-    setTimeout( function(){
-      page.removeClass(animOut);
-    }, animDuration)
-  } 
+//  function redirectPage() {
+//    window.location = linkLocation;
+//    setTimeout( function(){
+//      page.removeClass(animOut);
+//    }, animDuration)
+//  } 
 
-});
+//});
 
 /**
  * Initialize All Scripts
