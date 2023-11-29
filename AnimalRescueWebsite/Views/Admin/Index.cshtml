@@ -158,9 +158,9 @@
                     @Html.DisplayFor(m => applicant.dog)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@applicant.ApplicantId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@applicant.ApplicantId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@applicant.ApplicantId">Delete</a>
+                    <a asp-controller="DogApplications" asp-action="Edit" asp-route-id="@applicant.ApplicantId">Edit</a> |
+                    <a asp-controller="DogApplications" asp-action="Details" asp-route-id="@applicant.ApplicantId">Details</a> |
+                    <a asp-controller="DogApplications" asp-action="Delete" asp-route-id="@applicant.ApplicantId">Delete</a>
                 </td>
             </tr>
 
