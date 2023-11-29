@@ -9,21 +9,29 @@
 <h1>Available Dogs!</h1>
 <p>Click on a photo for more details!</p>
 
-<div class="container text-center">
+@* Use this format to display the dogs
+<div class="thumbnail">
+    <img class="img-responsive" src="images/index-07.jpg" width="480" height="321" alt="">
+    <div class="caption">
+        <h4>Date of birth: 30 Sept 2010</h4>
+        <p class="text-graylight small text-bold text-uppercase">Delivery possible</p><a class="caption-link btn btn-default" href="#">details</a>
+    </div>
+</div> *@
+
+<div class="center text-center">
     <div class="row">
         @foreach (var item in Model)
         {
-            string picturePath = "/images/dogs/dog_" + item.DogId + ".jpg"; 
-            
-            <div class="card" style="width: 18rem; margin: 1rem">
-                <div class="card-img-top" onclick="goToDogDescription(@item.DogId)" style="width:200px; height:200px; background-image: url(@picturePath); background-repeat: no-repeat;
-                                                                                            background-position:center"></div>
+            string picturePath = "images/dogs/dog_" + item.DogId + ".jpg";
+
+            <div class="thumbnail" style="width: 400px; height: 400px margin-bottom: 30px">
+                <img class="img-responsive" onclick="goToDogDescription(@item.DogId)" src="@picturePath"></img>
                 @* <img src=@picturePath class="card-img-top" onclick="goToDogDescription(@item.DogId)"> *@
-                <div class="card-body">
-                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.DogName)</h5>
+                <div class="caption">
+                    <h4 class="card-title">@Html.DisplayFor(modelItem => item.DogName)</h4>
                     <p class="card-text">@Html.DisplayFor(modelItem => item.DogBreed)</p>
                     <p class="card-text">@Html.DisplayFor(modelItem => item.DogDescription)</p>
-                    <a href="@Url.Action("Create", "DogApplications", new {id = item.DogId})" class="btn btn-primary">Adopt Me!</a>
+                    <a href="@Url.Action("Create", "DogApplications", new {id = item.DogId})" class="caption-link btn btn-default">Adopt Me!</a>
                 </div>
             </div>
         }
