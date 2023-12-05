@@ -4,30 +4,29 @@
     ViewData["Title"] = "Dog Descriptions";
 }
 
-<h1>Description</h1>
+<h1>About @Html.DisplayFor(model => model.Dog.DogName)</h1>
 
-<div class="card">
-    <div>
-        <h2>About @Html.DisplayFor(model => model.Dog.DogName)</h2>
+<div class="shell shell-wide">
+    <div class="range range-xs-center offset-top-26">
+        <div class="cell-md-10 text-left">
+            <h3>@Html.DisplayNameFor(model => model.DogDescriptions.Characteristics)</h3>
+            <p>@Html.DisplayFor(model => model.DogDescriptions.Characteristics)</p>
 
-        <h3>@Html.DisplayNameFor(model => model.DogDescriptions.Characteristics)</h3>
-        <p>@Html.DisplayFor(model => model.DogDescriptions.Characteristics)</p>
+            <h3>@Html.DisplayNameFor(model => model.DogDescriptions.CoatLength)</h3>
+            <p>@Html.DisplayFor(model => model.DogDescriptions.CoatLength)</p>
 
-        <h3>@Html.DisplayNameFor(model => model.DogDescriptions.CoatLength)</h3>
-        <p>@Html.DisplayFor(model => model.DogDescriptions.CoatLength)</p>
+            <h3>@Html.DisplayNameFor(model => model.DogDescriptions.Health)</h3>
+            <p>@Html.DisplayFor(model => model.DogDescriptions.Health)</p>
 
-        <h3>@Html.DisplayNameFor(model => model.DogDescriptions.Health)</h3>
-        <p>@Html.DisplayFor(model => model.DogDescriptions.Health)</p>
+            <h3>@Html.DisplayNameFor(model => model.DogDescriptions.GoodInHomeWith)</h3>
+            <p>@Html.DisplayFor(model => model.DogDescriptions.GoodInHomeWith)</p>
 
-        <h3>@Html.DisplayNameFor(model => model.DogDescriptions.GoodInHomeWith)</h3>
-        <p>@Html.DisplayFor(model => model.DogDescriptions.GoodInHomeWith)</p>
+            <h3>@Html.DisplayNameFor(model => model.DogDescriptions.AdoptionFee)</h3>
+            <p>$@Html.DisplayFor(model => model.DogDescriptions.AdoptionFee).00</p>
 
-        <h3>@Html.DisplayNameFor(model => model.DogDescriptions.AdoptionFee)</h3>
-        <p>$@Html.DisplayFor(model => model.DogDescriptions.AdoptionFee).00</p>
-
-        <h3>@Html.DisplayNameFor(model => model.DogDescriptions.LongDescription)</h3>
-        <p>@Html.DisplayFor(model => model.DogDescriptions.LongDescription)</p>
+            <h3>@Html.DisplayNameFor(model => model.DogDescriptions.LongDescription)</h3>
+            <p>@Html.DisplayFor(model => model.DogDescriptions.LongDescription)</p>
+        </div>
     </div>
-    
 </div>
 

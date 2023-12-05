@@ -5,4 +5,5 @@
 function goToDogDescription(id) {
 	/*alert(`You are now being redirected to the ${id} dog description page.`);*/
 	window.location.href = `https://animalrescuewebsite.azurewebsites.net/Users/DogDescriptions/${id}`;
+	//window.location.href = `https://localhost:7004/Users/DogDescriptions/${id}`;
 }
