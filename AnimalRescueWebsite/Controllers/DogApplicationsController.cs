@@ -70,6 +70,7 @@ namespace AnimalRescueWebsite.Controllers
             {
                 _context.Add(applicant);
                 await _context.SaveChangesAsync();
+                TempData["SuccessMessage"] = "Thank you, if your the right fit we will contact you soon!";
                 return RedirectToAction("Index", "Users");
             }
             return View(applicant);

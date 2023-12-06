@@ -23,6 +23,11 @@ namespace AnimalRescueWebsite.Controllers
         // GET: Users
         public async Task<IActionResult> Index()
         {
+            if (TempData["SuccessMessage"] != null)
+            {
+                ViewBag.SuccessMessage = TempData["SuccessMessage"];
+            }
+
               return _context.Dogs != null ? 
                           View(await _context.Dogs.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.Dogs'  is null.");

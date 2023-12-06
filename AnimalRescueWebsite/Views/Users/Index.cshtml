@@ -5,29 +5,41 @@
     
 }
 
+@if (ViewBag.SuccessMessage != null)
+{
+    <div class="alert alert-success w-50 m-auto">
+        @ViewBag.SuccessMessage
+    </div>
+} 
+
 
 <h2>Available Dogs!</h2>
 <p>Click on a photo for more details!</p>
 <div class="shell shell-wide">
     <div class="shell">
         <div class="text-center">
-            <div class="row">
-                @foreach (var item in Model)
-                {
-                    string picturePath = "images/dogs/dog_" + item.DogId + ".jpg";
+            <div class="container">
+                <div class="row">
+                    <div>
+                        @foreach (var item in Model)
+                        {
+                            string picturePath = "images/dogs/dog_" + item.DogId + ".jpg";
 
-                    <div class="thumbnail" style="width: 400px; height: 400px margin-bottom: 30px">
-                        <img class="img-responsive" onclick="goToDogDescription(@item.DogId)" src="https://placedog.net/500?r"></img>
-                        @* <img src=@picturePath class="card-img-top" onclick="goToDogDescription(@item.DogId)"> *@
-                        <div class="caption">
-                            <h4 class="card-title">@Html.DisplayFor(modelItem => item.DogName)</h4>
-                            <p class="card-text">@Html.DisplayFor(modelItem => item.DogBreed)</p>
-                            <p class="card-text">@Html.DisplayFor(modelItem => item.DogDescription)</p>
-                            <a href="@Url.Action("Create", "DogApplications", new {id = item.DogId})" class="caption-link btn btn-default">Adopt Me!</a>
-                        </div>
+                            <div class="thumbnail col-lg-6 p-5">
+                                <img class="img-responsive" onclick="goToDogDescription(@item.DogId)" src="https://placedog.net/500?r"></img>
+                                @* <img src=@picturePath class="card-img-top" onclick="goToDogDescription(@item.DogId)"> *@
+                                <div class="caption">
+                                    <h4 class="card-title">@Html.DisplayFor(modelItem => item.DogName)</h4>
+                                    <p class="card-text">@Html.DisplayFor(modelItem => item.DogBreed)</p>
+                                    <p class="card-text">@Html.DisplayFor(modelItem => item.DogDescription)</p>
+                                    <a href="@Url.Action("Create", "DogApplications", new {id = item.DogId})" class="caption-link btn btn-default">Adopt Me!</a>
+                                </div>
+                            </div>
+                        }
                     </div>
-                }
+                </div>
             </div>
+            
         </div>
     </div>
 </div>
