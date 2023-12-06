@@ -5,6 +5,13 @@
     
 }
 
+@if (ViewBag.SuccessMessage != null)
+{
+    <div class="alert alert-success w-50 m-auto">
+        @ViewBag.SuccessMessage
+    </div>
+} 
+
 
 <h2>Available Dogs!</h2>
 <p>Click on a photo for more details!</p>
