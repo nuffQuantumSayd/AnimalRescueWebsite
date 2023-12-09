@@ -45,7 +45,7 @@
 </div>
 
 <nav aria-label="Pagination">
-    <ul class="pagination">
+    <ul class="pagination pagination-lg">
         <li>
             <a class="page-link" href="@if (ViewBag.CurrentPage > 1)
             {
@@ -60,11 +60,11 @@
             <li class="page-item">
                     @if (i == ViewBag.CurrentPage)
                     {
-                        <a>@i</a>
+                        <a class="page-link">@i</a>
                     }
                     else
                     {
-                        <a href="@Url.Action("Index", new {page = i})">@i</a>
+                        <a class="page-link" href="@Url.Action("Index", new {page = i})">@i</a>
                     }
             </li>
         }
