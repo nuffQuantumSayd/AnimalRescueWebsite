@@ -21,17 +21,30 @@ namespace AnimalRescueWebsite.Controllers
         }
 
         // GET: Users
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1, int pageSize = 2)
         {
+            //Pagination getting list of dogs
+            List<Dog> allDogs = await _context.Dogs.ToListAsync();
+            int totalItems = allDogs.Count();
+            int totalPages = (int)Math.Ceiling((decimal)totalItems / pageSize);
+
+            //Get the items for the current page
+            List<Dog> itemsForCurrentPage = allDogs.Skip((page - 1) * pageSize)
+                                            .Take(pageSize).ToList();
+
+            //ViewBag for pagination
+            ViewBag.TotalPages = totalPages;
+            ViewBag.CurrentPage = page;
+            ViewBag.Items = itemsForCurrentPage;
+
+            
             //If there is a success message in the TempData, set the ViewBag to that message
             if (TempData["SuccessMessage"] != null)
             {
                 ViewBag.SuccessMessage = TempData["SuccessMessage"];
             }
 
-              return _context.Dogs != null ? 
-                          View(await _context.Dogs.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Dogs'  is null.");
+            return View();
         }
 
         private bool DogExists(int id)

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AnimalRescueWebsite.Models.Dog>
+﻿@model List<AnimalRescueWebsite.Models.Dog>
 
 @{
     ViewData["Title"] = "Adoptables";
@@ -21,7 +21,7 @@
             <div class="container">
                 <div class="row">
                     <div>
-                        @foreach (var item in Model)
+                        @foreach (var item in ViewBag.Items)
                         {
                             string picturePath = "images/dogs/dog_" + item.DogId + ".jpg";
 
@@ -29,9 +29,9 @@
                                 <img class="img-responsive" onclick="goToDogDescription(@item.DogId)" src="https://placedog.net/500?r"></img>
                                 @* <img src=@picturePath class="card-img-top" onclick="goToDogDescription(@item.DogId)"> *@
                                 <div class="caption">
-                                    <h4 class="card-title">@Html.DisplayFor(modelItem => item.DogName)</h4>
-                                    <p class="card-text">@Html.DisplayFor(modelItem => item.DogBreed)</p>
-                                    <p class="card-text">@Html.DisplayFor(modelItem => item.DogDescription)</p>
+                                    <h4 class="card-title">@item.DogName</h4>
+                                    <p class="card-text">@item.DogBreed</p>
+                                    <p class="card-text">@item.DogDescription</p>
                                     <a href="@Url.Action("Create", "DogApplications", new {id = item.DogId})" class="caption-link btn btn-default">Adopt Me!</a>
                                 </div>
                             </div>
@@ -44,14 +44,41 @@
     </div>
 </div>
 
-@* Use this format to display the dogs
-<div class="thumbnail">
-    <img class="img-responsive" src="images/index-07.jpg" width="480" height="321" alt="">
-    <div class="caption">
-        <h4>Date of birth: 30 Sept 2010</h4>
-        <p class="text-graylight small text-bold text-uppercase">Delivery possible</p><a class="caption-link btn btn-default" href="#">details</a>
-    </div>
-</div> *@
+<nav aria-label="Pagination">
+    <ul class="pagination">
+        <li>
+            <a class="page-link" href="@if (ViewBag.CurrentPage > 1)
+            {
+                @Url.Action("Index", new {page = ViewBag.CurrentPage - 1})
+            }" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+            </a>
+        </li>
+        @for (int i = 1; i <= ViewBag.TotalPages; i++)
+        {
+            <li class="page-item">
+                    @if (i == ViewBag.CurrentPage)
+                    {
+                        <a>@i</a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Index", new {page = i})">@i</a>
+                    }
+            </li>
+        }
+        <li class="page-item">
+            <a class="page-link" href="@if (ViewBag.CurrentPage < ViewBag.TotalPages)
+            {
+                @Url.Action("Index", new {page = ViewBag.CurrentPage + 1})
+            }" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+            </a>
+        </li>
+    </ul>
+</nav>
 
 
 
