@@ -70,6 +70,7 @@ namespace AnimalRescueWebsite.Controllers
             {
                 _context.Add(applicant);
                 await _context.SaveChangesAsync();
+                //Upon model validation, send the user back to the index page with a success message
                 TempData["SuccessMessage"] = "Thank you, if your the right fit we will contact you soon!";
                 return RedirectToAction("Index", "Users");
             }
@@ -99,7 +100,9 @@ namespace AnimalRescueWebsite.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles ="Administrator")]
-        public async Task<IActionResult> Edit(int id, [Bind("ApplicantId,ApplicantFirstName,ApplicantLastName,DateOfApplication,AddressStreet,AddressCity,AddressState,AddressZip,ApplicantEmail,ApplicantPhone,ApplicantOccupation,NumberOfChildren")] Applicant applicant)
+        public async Task<IActionResult> Edit(int id, [Bind("ApplicantId,ApplicantFirstName,ApplicantLastName," +
+            "DateOfApplication,AddressStreet,AddressCity,AddressState,AddressZip,ApplicantEmail,ApplicantPhone," +
+            "ApplicantOccupation,NumberOfChildren")] Applicant applicant)
         {
             if (id != applicant.ApplicantId)
             {

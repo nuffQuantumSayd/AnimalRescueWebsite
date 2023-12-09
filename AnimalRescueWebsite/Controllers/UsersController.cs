@@ -23,6 +23,7 @@ namespace AnimalRescueWebsite.Controllers
         // GET: Users
         public async Task<IActionResult> Index()
         {
+            //If there is a success message in the TempData, set the ViewBag to that message
             if (TempData["SuccessMessage"] != null)
             {
                 ViewBag.SuccessMessage = TempData["SuccessMessage"];

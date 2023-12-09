@@ -25,15 +25,12 @@ namespace AnimalRescueWebsite.Controllers
         // GET: Admin
         public async Task<IActionResult> Index()
         {
+            // Return a list of all dogs and applicants sends it to the view
             DogAndApplicationsModel dogApplications = new DogAndApplicationsModel();
-
             dogApplications.Dogs = _context.Dogs.ToList();
             dogApplications.Applicants = _context.Applicants.ToList();
             
             return View(dogApplications);
-            //return _context.Dogs != null ? 
-              //            View(await _context.Dogs.ToListAsync()) :
-              //            Problem("Entity set 'ApplicationDbContext.Dogs'  is null.");
         }
 
         // GET: Admin/Details/5
