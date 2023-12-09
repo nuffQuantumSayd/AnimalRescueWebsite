@@ -81,6 +81,9 @@ namespace AnimalRescueWebsite.Models
         [Display(Name = "Number of Children")]
         public int NumberOfChildren { get; set; }
 
+        /// <summary>
+        /// The dog id of the dog the applicant is applying for
+        /// </summary>
         [ForeignKey(nameof(Dog))]
         [Display(Name = "Dog Id")]
         public int dog { get; set; }
