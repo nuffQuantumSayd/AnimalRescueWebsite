@@ -22,3 +22,15 @@ functionality to manage dog listings, applications, and user accounts.
 - Admin Features:
   - Log in as an admin to access the dashboard.
   - CRUD functionality for managing dog listings.
+
+## Getting Started
+Use code first migrations and update the database. Scripts have been provided to populate the dog table in the database.
+
+### Notes:
+The live website might take a while to load due to it being published with the free tier on Azure. If traffic is not consistent it could take a while to load.
+
+![](AnimalRescueWebsite/wwwroot/Images/Animal_1.png)
+![](AnimalRescueWebsite/wwwroot/Images/Animal_2.png)
+![](AnimalRescueWebsite/wwwroot/Images/Animal_3.png)
+![](AnimalRescueWebsite/wwwroot/Images/Animal_4.png)
+
